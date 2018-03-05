@@ -15,6 +15,9 @@ public:
     explicit Pcclient(QWidget *parent = 0);
     ~Pcclient();
 
+private slots:
+    void on_toolButton_clicked();
+
 private:
     Ui::Pcclient *ui;
 };

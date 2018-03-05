@@ -14,31 +14,6 @@
    <string>Pcclient</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QComboBox" name="comboBox">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>20</y>
-      <width>79</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>empty</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>protobuffer</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>flatbuffer</string>
-     </property>
-    </item>
-   </widget>
    <widget class="QListView" name="listView">
     <property name="geometry">
      <rect>
@@ -141,98 +116,6 @@
      <string>Header:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>20</y>
-      <width>81</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>ProtoType:</string>
-    </property>
-   </widget>
-   <widget class="QCommandLinkButton" name="commandLinkButton">
-    <property name="geometry">
-     <rect>
-      <x>480</x>
-      <y>10</y>
-      <width>174</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>CommandLinkButton</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>20</y>
-      <width>81</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>ProtoType:</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="comboBox_3">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>20</y>
-      <width>79</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>Once</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>5s</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>10s</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>30s</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>1min</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>15min</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QLabel" name="label_6">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>20</y>
-      <width>51</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Timer:</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
@@ -322,26 +205,6 @@
      </property>
     </item>
    </widget>
-   <widget class="QComboBox" name="comboBox_5">
-    <property name="geometry">
-     <rect>
-      <x>680</x>
-      <y>10</y>
-      <width>79</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>tcp</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>udp</string>
-     </property>
-    </item>
-   </widget>
    <widget class="QLineEdit" name="lineEdit_3">
     <property name="geometry">
      <rect>
@@ -364,6 +227,116 @@
     <property name="text">
      <string>Pattern:</string>
     </property>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>10</y>
+      <width>701</width>
+      <height>72</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>ProtoType:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="comboBox">
+       <item>
+        <property name="text">
+         <string>empty</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>protobuffer</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>flatbuffer</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Timer:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="comboBox_3">
+       <item>
+        <property name="text">
+         <string>Once</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>5s</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>10s</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>30s</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1min</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>15min</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>ProtoType:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="comboBox_6"/>
+     </item>
+     <item>
+      <widget class="QToolButton" name="toolButton">
+       <property name="text">
+        <string>...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="comboBox_5">
+       <item>
+        <property name="text">
+         <string>tcp</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>udp</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
