@@ -7,68 +7,28 @@
     <x>0</x>
     <y>0</y>
     <width>799</width>
-    <height>544</height>
+    <height>717</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Pcclient</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QListView" name="listView">
+   <widget class="QLineEdit" name="LESenderProtoMessageName">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>100</y>
-      <width>256</width>
-      <height>121</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QListView" name="listView_2">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>260</y>
-      <width>256</width>
-      <height>111</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>400</y>
+      <x>40</x>
+      <y>580</y>
       <width>251</width>
       <height>22</height>
      </rect>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_2">
+   <widget class="QPushButton" name="SendButton">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>430</y>
-      <width>79</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>tcp</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>udp</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>430</y>
+      <x>210</x>
+      <y>620</y>
       <width>80</width>
       <height>22</height>
      </rect>
@@ -80,8 +40,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>380</y>
+      <x>40</x>
+      <y>560</y>
       <width>121</width>
       <height>16</height>
      </rect>
@@ -93,8 +53,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>230</y>
+      <x>40</x>
+      <y>410</y>
       <width>121</width>
       <height>16</height>
      </rect>
@@ -106,10 +66,10 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>70</y>
-      <width>121</width>
-      <height>16</height>
+      <x>40</x>
+      <y>250</y>
+      <width>111</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
@@ -119,8 +79,8 @@
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>80</y>
+      <x>430</x>
+      <y>250</y>
       <width>121</width>
       <height>16</height>
      </rect>
@@ -129,11 +89,11 @@
      <string>Header:</string>
     </property>
    </widget>
-   <widget class="QListView" name="listView_3">
+   <widget class="QListView" name="LVRecverHeader">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>110</y>
+      <x>430</x>
+      <y>270</y>
       <width>256</width>
       <height>121</height>
      </rect>
@@ -142,8 +102,8 @@
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>240</y>
+      <x>430</x>
+      <y>400</y>
       <width>121</width>
       <height>16</height>
      </rect>
@@ -152,11 +112,11 @@
      <string>Payload:</string>
     </property>
    </widget>
-   <widget class="QListView" name="listView_4">
+   <widget class="QListView" name="LVRecverPayload">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>270</y>
+      <x>430</x>
+      <y>430</y>
       <width>256</width>
       <height>111</height>
      </rect>
@@ -165,8 +125,8 @@
    <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>390</y>
+      <x>430</x>
+      <y>550</y>
       <width>121</width>
       <height>16</height>
      </rect>
@@ -175,41 +135,21 @@
      <string>MessageName:</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="LERecverProtoMessageName">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>410</y>
+      <x>430</x>
+      <y>570</y>
       <width>251</width>
       <height>22</height>
      </rect>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_4">
+   <widget class="QLineEdit" name="LERecverPayloadPattern">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>430</y>
-      <width>79</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>tcp</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>udp</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_3">
-    <property name="geometry">
-     <rect>
-      <x>420</x>
-      <y>460</y>
+      <x>430</x>
+      <y>620</y>
       <width>251</width>
       <height>22</height>
      </rect>
@@ -218,8 +158,8 @@
    <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>440</y>
+      <x>430</x>
+      <y>600</y>
       <width>121</width>
       <height>16</height>
      </rect>
@@ -246,7 +186,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox">
+      <widget class="QComboBox" name="StreamType">
        <item>
         <property name="text">
          <string>empty</string>
@@ -272,7 +212,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox_3">
+      <widget class="QComboBox" name="Timer">
        <item>
         <property name="text">
          <string>Once</string>
@@ -308,12 +248,12 @@
      <item>
       <widget class="QLabel" name="label_5">
        <property name="text">
-        <string>ProtoType:</string>
+        <string>ProtoFilePath:</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox_6"/>
+      <widget class="QComboBox" name="ProtoFilePath"/>
      </item>
      <item>
       <widget class="QToolButton" name="toolButton">
@@ -323,7 +263,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox_5">
+      <widget class="QComboBox" name="ProtoType">
        <item>
         <property name="text">
          <string>tcp</string>
@@ -337,6 +277,62 @@
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QListWidget" name="LVTimerSenderTask">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>130</y>
+      <width>641</width>
+      <height>111</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_11">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>100</y>
+      <width>111</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TimerTask:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="AddToTimerTaskButton">
+    <property name="geometry">
+     <rect>
+      <x>39</x>
+      <y>620</y>
+      <width>111</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>AddToTimerTask</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="PTESenderHeader">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>270</y>
+      <width>311</width>
+      <height>121</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="PTESenderPayload">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>430</y>
+      <width>311</width>
+      <height>121</height>
+     </rect>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">

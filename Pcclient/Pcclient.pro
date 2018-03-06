@@ -13,8 +13,26 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        pcclient.cpp
+        pcclient.cpp \
+    udpclient.cpp \
+    tcpclient.cpp \
+    payloadproc.cpp \
+    clientbase.cpp \
+    timertaskmanager.cpp
 
-HEADERS  += pcclient.h
+HEADERS  += pcclient.h \
+    udpclient.h \
+    tcpclient.h \
+    payloadproc.h \
+    common.h \
+    crossplatform.h \
+    clientbase.h \
+    timertaskmanager.h
 
 FORMS    += pcclient.ui
+
+QMAKE_CXXFLAGS += -std=c++14
+
+QMAKE_LINK += -pthread
+
+LIBS += -L/usr/lib -levent
