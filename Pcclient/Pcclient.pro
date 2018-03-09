@@ -11,6 +11,13 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = Pcclient
 TEMPLATE = app
 
+QMAKE_CXXFLAGS+= -std=c++11
+
+QMAKE_LFLAGS += -std=c++11
+
+QMAKE_LINK += -pthread
+
+LIBS += -L/usr/lib -levent
 
 SOURCES += main.cpp\
         pcclient.cpp \
@@ -18,7 +25,9 @@ SOURCES += main.cpp\
     tcpclient.cpp \
     payloadproc.cpp \
     clientbase.cpp \
-    timertaskmanager.cpp
+    timertaskmanager.cpp \
+    packagemanager.cpp \
+    threadpool.cpp
 
 HEADERS  += pcclient.h \
     udpclient.h \
@@ -27,12 +36,13 @@ HEADERS  += pcclient.h \
     common.h \
     crossplatform.h \
     clientbase.h \
-    timertaskmanager.h
+    timertaskmanager.h \
+    packagemanager.h \
+    singleton.h \
+    spinlock.h \
+    threadpool.h \
+    concurrent_queue.h
 
 FORMS    += pcclient.ui
 
-QMAKE_CXXFLAGS += -std=c++14
 
-QMAKE_LINK += -pthread
-
-LIBS += -L/usr/lib -levent

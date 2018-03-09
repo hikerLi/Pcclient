@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>799</width>
+    <width>1192</width>
     <height>717</height>
    </rect>
   </property>
@@ -14,166 +14,12 @@
    <string>Pcclient</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLineEdit" name="LESenderProtoMessageName">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>580</y>
-      <width>251</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="SendButton">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>620</y>
-      <width>80</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Send</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>560</y>
-      <width>121</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>MessageName:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>410</y>
-      <width>121</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Payload:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>250</y>
-      <width>111</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Header:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>250</y>
-      <width>121</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Header:</string>
-    </property>
-   </widget>
-   <widget class="QListView" name="LVRecverHeader">
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>270</y>
-      <width>256</width>
-      <height>121</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_8">
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>400</y>
-      <width>121</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Payload:</string>
-    </property>
-   </widget>
-   <widget class="QListView" name="LVRecverPayload">
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>430</y>
-      <width>256</width>
-      <height>111</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_9">
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>550</y>
-      <width>121</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>MessageName:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="LERecverProtoMessageName">
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>570</y>
-      <width>251</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="LERecverPayloadPattern">
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>620</y>
-      <width>251</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_10">
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>600</y>
-      <width>121</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Pattern:</string>
-    </property>
-   </widget>
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>30</x>
       <y>10</y>
-      <width>701</width>
+      <width>1141</width>
       <height>72</height>
      </rect>
     </property>
@@ -181,7 +27,7 @@
      <item>
       <widget class="QLabel" name="label_4">
        <property name="text">
-        <string>ProtoType:</string>
+        <string>StreamType:</string>
        </property>
       </widget>
      </item>
@@ -190,6 +36,11 @@
        <item>
         <property name="text">
          <string>empty</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>hex</string>
         </property>
        </item>
        <item>
@@ -248,12 +99,12 @@
      <item>
       <widget class="QLabel" name="label_5">
        <property name="text">
-        <string>ProtoFilePath:</string>
+        <string>StreamFilePath:</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="ProtoFilePath"/>
+      <widget class="QComboBox" name="StreamFilePath"/>
      </item>
      <item>
       <widget class="QToolButton" name="toolButton">
@@ -276,6 +127,34 @@
        </item>
       </widget>
      </item>
+     <item>
+      <widget class="QLabel" name="label_12">
+       <property name="text">
+        <string>IP:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="LEIP">
+       <property name="text">
+        <string>192.168.1.24</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_13">
+       <property name="text">
+        <string>Port:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="LEPort">
+       <property name="text">
+        <string>21001</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QListWidget" name="LVTimerSenderTask">
@@ -283,7 +162,7 @@
      <rect>
       <x>40</x>
       <y>130</y>
-      <width>641</width>
+      <width>1131</width>
       <height>111</height>
      </rect>
     </property>
@@ -301,38 +180,248 @@
      <string>TimerTask:</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="AddToTimerTaskButton">
+   <widget class="QWidget" name="widget" native="true">
     <property name="geometry">
      <rect>
-      <x>39</x>
-      <y>620</y>
-      <width>111</width>
-      <height>22</height>
+      <x>520</x>
+      <y>250</y>
+      <width>371</width>
+      <height>401</height>
      </rect>
     </property>
-    <property name="text">
-     <string>AddToTimerTask</string>
-    </property>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>360</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Pattern:</string>
+     </property>
+    </widget>
+    <widget class="QListView" name="LVRecverPayload">
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>190</y>
+       <width>321</width>
+       <height>111</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="LERecverPayloadPattern">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>380</y>
+       <width>291</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>170</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Payload:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>10</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Header:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>310</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>MessageName:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="LERecverProtoMessageName">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>330</y>
+       <width>301</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QListView" name="LVRecverHeader">
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>30</y>
+       <width>321</width>
+       <height>121</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
-   <widget class="QPlainTextEdit" name="PTESenderHeader">
+   <widget class="QWidget" name="widget_2" native="true">
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>270</y>
-      <width>311</width>
-      <height>121</height>
+      <y>250</y>
+      <width>461</width>
+      <height>401</height>
      </rect>
     </property>
+    <widget class="QPlainTextEdit" name="PTESenderPayload">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>180</y>
+       <width>411</width>
+       <height>121</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="SendButton">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>370</y>
+       <width>80</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Send</string>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="PTESenderHeader">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>20</y>
+       <width>411</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="plainText">
+      <string>27-00-00-72-FE-1B-F7-68-00-00-00-00-00-00-00-00-00-00-00-00-04-00-00-00-04-00-00-00-1F-4E-00-00</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>310</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>MessageName:</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="AddToTimerTaskButton">
+     <property name="geometry">
+      <rect>
+       <x>29</x>
+       <y>370</y>
+       <width>111</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>AddToTimerTask</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="LESenderProtoMessageName">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>330</y>
+       <width>251</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>0</y>
+       <width>111</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Header:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>160</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Payload:</string>
+     </property>
+    </widget>
    </widget>
-   <widget class="QPlainTextEdit" name="PTESenderPayload">
+   <widget class="QWidget" name="widget_3" native="true">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>430</y>
-      <width>311</width>
-      <height>121</height>
+      <x>900</x>
+      <y>250</y>
+      <width>281</width>
+      <height>401</height>
      </rect>
     </property>
+    <widget class="QLabel" name="label_14">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Log:</string>
+     </property>
+    </widget>
+    <widget class="QListView" name="LVLog">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>241</width>
+       <height>361</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -340,7 +429,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>799</width>
+     <width>1192</width>
      <height>19</height>
     </rect>
    </property>

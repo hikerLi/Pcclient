@@ -18,6 +18,10 @@ protected:
 
     void EventCB(struct bufferevent *bev, short event, void *arg);
 
+
+    static void StaticMessageCB(struct bufferevent* bev, void* arg);
+
+    static void StaticEventCB(struct bufferevent *bev, short event, void *arg);
 private:
     struct bufferevent* bev;
 };

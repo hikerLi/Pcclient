@@ -1,4 +1,6 @@
 #include "udpclient.h"
+#include <common.h>
+#include <functional>
 
 UdpClient::UdpClient()
 {
@@ -11,23 +13,23 @@ void UdpClient::Start(const EndPort &ePort)
     if( sockfd == -1)
     {
         perror("udp_connect error ");
-        return -1;
+        return;
     }
 
     this->ePort = ePort;
 
     printf("connect to server successful\n");
 
-    struct event udp_event;
+    struct event_base *base = event_base_new();
 
-    //当socket关闭时会用到回调参数
-    event_set(&udp_event, sockfd, EV_READ|EV_PERSIST, MessageCB, NULL);
-    event_add(&udp_event, NULL);
+    struct event *udp_event = event_new(base, sockfd, EV_READ|EV_PERSIST, UdpClient::StaticMessageCB, this);
+
+    event_add(udp_event, NULL);
 
     event_dispatch();
 
     printf("finished \n");
-    return 0;
+    return ;
 }
 
 bool UdpClient::SendMessage(const std::__cxx11::string &payload)
@@ -59,11 +61,17 @@ HANDLE_T UdpClient::UdpInit()
 void UdpClient::MessageCB(const int sock, short int which, void *arg)
 {
     struct sockaddr_in server_addr;
-    socklen_t server_sz = sizeof(server_sin);
+    uint32_t addr_size = sizeof(server_addr);
     char data[MAX_PAYLOAD];
-    uint32_t nNumberOfRead = ::recvfrom(sockfd, data, MAX_PAYLOAD, 0, &server_addr, sizeof(server_addr));
+    int32_t nNumberOfRead = ::recvfrom(sockfd, data, MAX_PAYLOAD, 0, (struct sockaddr*)&server_addr, &addr_size);
     if(-1 == nNumberOfRead){
 
     }
+}
+
+void UdpClient::StaticMessageCB(const int sock, short which, void *arg)
+{
+    UdpClient* UClt = (UdpClient*)arg;
+    UClt->MessageCB(sock, which, arg);
 }
 

@@ -17,9 +17,11 @@ protected:
 
     void MessageCB(const int sock, short int which, void *arg);
 
+    static void StaticMessageCB(const int sock, short int which, void *arg);
 private:
     HANDLE_T sockfd;
     EndPort ePort;
+
 };
 
 #endif // UDPCLIENT_H
