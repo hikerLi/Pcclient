@@ -10,7 +10,7 @@ class Connection;
 class ConnnectionContainer
 {
 public:
-    ConnnectionContainer(ConnectionManager * pManager);
+    ConnnectionContainer(ConnectionManager* pManager);
 
     /**
      * @brief 更新所有kcp时间戳
@@ -24,14 +24,14 @@ public:
      * @param ePort : IP 端口
      * @return 返回创建的连接对象 ,失败返回nullptr
      */
-    Connection * AddConn(kcp_conv_t conv, const Endport &ePort);
+    Connection* AddConn(kcp_conv_t conv, const EndPort &ePort);
 
     /**
      * @brief 查找一个连接
      * @param conv : 要查找的连接ID
      * @return 没找到返回nullptr
      */
-    Connection * FindConnByConv(kcp_conv_t conv);
+    Connection* FindConnByConv(kcp_conv_t conv);
 
     /**
      * @brief 停止所有连接
@@ -51,7 +51,7 @@ private:
 private:
     std::unordered_map<kcp_conv_t, Connection*> connections;
 
-    ConnectionManager * ConnMgr;
+    ConnectionManager* ConnMgr;
 };
 
 #endif // CONNNECTIONCONTAINER_H

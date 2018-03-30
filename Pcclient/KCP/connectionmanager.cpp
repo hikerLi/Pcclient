@@ -7,17 +7,18 @@
 #include <KCP/kcptype.h>
 #include <event2/event.h>
 #include <Common/common.h>
+#include <Common/memorypool.h>
 
 using namespace std;
 
-bool ConnectionManager::HandleKcpPackage(const string &data, const Endport &ipPort, kcp_conv_t &conv, std::string& payload)
+bool ConnectionManager::HandleKcpPackage(const string &data, const EndPort &ipPort, kcp_conv_t &conv, std::string& payload)
 {
     //处理连接包
-    if(IsConnectPack(data.c_str(), data.length())){
-        if(CreateConnection(ipPort) > 0){
-            LOG_DEBUG("create connection.");
-            return false;
+    if(IsConnectAck(data.c_str(), data.length())){
+        if(GetConv(data.c_str(), data.length(), conv)){
+            ConnContainer->AddConn(conv, ipPort);
         }
+        return true;
     }
 
     int ret = ikcp_get_conv(data.c_str(), data.length(), &conv);
@@ -26,20 +27,15 @@ bool ConnectionManager::HandleKcpPackage(const string &data, const Endport &ipPo
         return false;
     }
 
-    bool bNewConnection = false;
     Connection * conn = ConnContainer->FindConnByConv(conv);
     if(nullptr == conn){
         conn = ConnContainer->AddConn(conv, ipPort);
-        bNewConnection = true;
         assert(conn);
     }
 
     if(conn){
         if(conn->SetToInput(data.c_str(), data.length())){
             if(conn->PopByRecv(payload)){
-                if(bNewConnection){
-                    RegisterConnector(conv, payload);
-                }
                 return true;
             }
         }
@@ -50,7 +46,7 @@ bool ConnectionManager::HandleKcpPackage(const string &data, const Endport &ipPo
     return false;
 }
 
-int ConnectionManager::SendUdpPackage(const string &data, const Endport &ipPort)
+int ConnectionManager::SendUdpPackage(const string &data, const EndPort &ipPort)
 {
     return UdpSendMsg(data, ipPort);
 }
@@ -64,7 +60,7 @@ int ConnectionManager::PushToKcpSendQue(kcp_conv_t conv, const string &msg)
     return -1;
 }
 
-int ConnectionManager::CreateConnection(const Endport &ipPort)
+int ConnectionManager::CreateConnection(const EndPort &ipPort)
 {
     kcp_conv_t conv = ConnContainer->GetNewConv();
     LOG_DEBUG("create connection: endport : %s, %d. conv:<%d>", ipPort.ip.c_str(), ipPort.port, conv);
@@ -99,7 +95,7 @@ void ConnectionManager::InitUdp(uint16_t port)
     }
 }
 
-uint32_t ConnectionManager::UdpSendMsg(const std::string &data, const Endport &ePort)
+uint32_t ConnectionManager::UdpSendMsg(const std::string &data, const EndPort &ePort)
 {
     if(data.empty() || ePort.Empty()){
         LOG_ERR("Param error.");
@@ -113,7 +109,7 @@ uint32_t ConnectionManager::UdpSendMsg(const std::string &data, const Endport &e
     return ::sendto(serverfd, data.c_str(), data.length(), 0, (sockaddr*)&sock_addr, sizeof(sockaddr));
 }
 
-uint32_t ConnectionManager::UdpRecvPackage(std::string &data, Endport &ePort)
+uint32_t ConnectionManager::UdpRecvPackage(std::string &data, EndPort &ePort)
 {
     struct sockaddr_in client_addr;
     socklen_t socklen;

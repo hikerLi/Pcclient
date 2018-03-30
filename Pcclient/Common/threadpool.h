@@ -1,8 +1,8 @@
 #ifndef THREADPOOL_H
 #define THREADPOOL_H
 
-#include <singleton.h>
-#include <concurrent_queue.h>
+#include <Common/singleton.h>
+#include <Common/concurrent_queue.h>
 #include <memory>
 #include <thread>
 #include <future>

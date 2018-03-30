@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cstring>
 #include <KCP/connectionmanager.h>
-#include <Common/logmanager.h>
+//#include <Common/logmanager.h>
 #include <Common/memorypool.h>
 #include <Common/common.h>
 
@@ -12,7 +12,7 @@ Connection::Connection()
 
 }
 
-Connection *Connection::Create(const kcp_conv_t &conv, const Endport &ePort, ConnectionManager *connMgr)
+Connection *Connection::Create(const kcp_conv_t &conv, const EndPort &ePort, ConnectionManager *connMgr)
 {
     if(nullptr == connMgr){
         return nullptr;

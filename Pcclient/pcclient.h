@@ -2,7 +2,9 @@
 #define PCCLIENT_H
 
 #include <QMainWindow>
-#include <common.h>
+#include <Common/common.h>
+#include <pkghandler.h>
+
 namespace Ui {
 class Pcclient;
 }
@@ -20,12 +22,12 @@ private slots:
 
     void on_SendButton_clicked();
 
-    void on_AddToTimerTaskButton_clicked();
-
 private:
     void LoadPackageConfig(PackageConfig& Package);
 private:
     Ui::Pcclient *ui;
+
+    PkgHandler mPkgHandle;
 };
 
 #endif // PCCLIENT_H

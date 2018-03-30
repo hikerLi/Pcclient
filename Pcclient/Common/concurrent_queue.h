@@ -2,7 +2,7 @@
 #define CONCURRENT_QUEUE_H
 
 #include <queue>
-#include <spinlock.h>
+#include <Common/spinlock.h>
 #include <mutex>
 namespace Concurrent{
     template <class ItemType>

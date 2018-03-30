@@ -1,13 +1,15 @@
 #ifndef UDPCLIENT_H
 #define UDPCLIENT_H
 
-#include <clientbase.h>
-#include <crossplatform.h>
+#include <Client/clientbase.h>
+#include <Common/crossplatform.h>
+#include <KCP/connectionmanager.h>
 
 class UdpClient : public ClientBase
 {
 public:
-    UdpClient();
+    UdpClient(const PackageConfig &PkgConfig);
+    ~UdpClient();
 
     void Start(const EndPort& ePort);
 
@@ -20,8 +22,12 @@ protected:
     static void StaticMessageCB(const int sock, short int which, void *arg);
 private:
     HANDLE_T sockfd;
-    EndPort ePort;
 
+    bool bUseKCP;
+
+    ConnectionManager* mConnMgr;
+
+    kcp_conv_t kcp;
 };
 
 #endif // UDPCLIENT_H

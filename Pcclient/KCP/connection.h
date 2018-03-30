@@ -18,7 +18,7 @@ public:
      * @param ePort : 连接ip和端口
      * @param connMgr : 管理连接的对象
      */
-    static Connection *Create(const kcp_conv_t &conv, const Endport &ePort, ConnectionManager *connMgr);
+    static Connection *Create(const kcp_conv_t &conv, const EndPort &ePort, ConnectionManager *connMgr);
 
     /**
      * @brief 发送数据的回调函数，不需要主动调用
@@ -73,7 +73,7 @@ private:
 private:
     ikcpcb * pKcp;
 
-    Endport ipPort;
+    EndPort ipPort;
 
     ConnectionManager * connMgr;
 };

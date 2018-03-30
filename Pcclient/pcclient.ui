@@ -128,6 +128,20 @@
       </widget>
      </item>
      <item>
+      <widget class="QComboBox" name="UDPKCP">
+       <item>
+        <property name="text">
+         <string/>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>KCP</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
       <widget class="QLabel" name="label_12">
        <property name="text">
         <string>IP:</string>
@@ -137,7 +151,7 @@
      <item>
       <widget class="QLineEdit" name="LEIP">
        <property name="text">
-        <string>192.168.1.24</string>
+        <string>120.55.40.46</string>
        </property>
       </widget>
      </item>
@@ -151,7 +165,7 @@
      <item>
       <widget class="QLineEdit" name="LEPort">
        <property name="text">
-        <string>21001</string>
+        <string>20002</string>
        </property>
       </widget>
      </item>
@@ -200,16 +214,6 @@
      </property>
      <property name="text">
       <string>Pattern:</string>
-     </property>
-    </widget>
-    <widget class="QListView" name="LVRecverPayload">
-     <property name="geometry">
-      <rect>
-       <x>25</x>
-       <y>190</y>
-       <width>321</width>
-       <height>111</height>
-      </rect>
      </property>
     </widget>
     <widget class="QLineEdit" name="LERecverPayloadPattern">
@@ -271,14 +275,30 @@
       </rect>
      </property>
     </widget>
-    <widget class="QListView" name="LVRecverHeader">
+    <widget class="QPlainTextEdit" name="PTERecverHeader">
      <property name="geometry">
       <rect>
-       <x>25</x>
+       <x>30</x>
        <y>30</y>
-       <width>321</width>
-       <height>121</height>
+       <width>311</width>
+       <height>131</height>
       </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="PTERecverPayload">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>190</y>
+       <width>311</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
      </property>
     </widget>
    </widget>
@@ -340,19 +360,6 @@
       <string>MessageName:</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="AddToTimerTaskButton">
-     <property name="geometry">
-      <rect>
-       <x>29</x>
-       <y>370</y>
-       <width>111</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>AddToTimerTask</string>
-     </property>
-    </widget>
     <widget class="QLineEdit" name="LESenderProtoMessageName">
      <property name="geometry">
       <rect>
@@ -389,6 +396,32 @@
       <string>Payload:</string>
      </property>
     </widget>
+    <widget class="QLineEdit" name="LEMaxBuffSize">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>330</y>
+       <width>121</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>10240</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_15">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>310</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>MaxBuffSize:</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="widget_3" native="true">
     <property name="geometry">
@@ -412,14 +445,17 @@
       <string>Log:</string>
      </property>
     </widget>
-    <widget class="QListView" name="LVLog">
+    <widget class="QPlainTextEdit" name="PTELog">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>30</y>
-       <width>241</width>
-       <height>361</height>
+       <width>261</width>
+       <height>371</height>
       </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
      </property>
     </widget>
    </widget>

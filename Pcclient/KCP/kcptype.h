@@ -37,8 +37,10 @@ namespace kcp_svr
 
 bool IsConnectPack(const char * data, int len);
 
-//bool IsConnectAck(const char * data, int len);
+bool IsConnectAck(const char * data, int len);
 
 std::string GetConnectAckPack(kcp_conv_t conv);
+
+bool GetConv(const char* data, int len, kcp_conv_t& conv);
 
 #endif // KCPTYPE_H

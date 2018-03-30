@@ -1,13 +1,13 @@
 #ifndef TCPCLIENT_H
 #define TCPCLIENT_H
 
-#include <clientbase.h>
+#include <Client/clientbase.h>
 
 
 class TcpClient : public ClientBase
 {
 public:
-    TcpClient();
+    TcpClient(const PackageConfig &PkgConfig);
 
     virtual void Start(const EndPort& ePort);
 
@@ -18,10 +18,16 @@ protected:
 
     void EventCB(struct bufferevent *bev, short event, void *arg);
 
+    void WriteCB(struct bufferevent *bev, short event, void *arg);
+
 
     static void StaticMessageCB(struct bufferevent* bev, void* arg);
 
     static void StaticEventCB(struct bufferevent *bev, short event, void *arg);
+
+    static void StaticWriteCB(struct bufferevent *bev, short event, void *arg);
+
+
 private:
     struct bufferevent* bev;
 };

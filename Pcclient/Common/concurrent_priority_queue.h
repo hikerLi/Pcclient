@@ -2,7 +2,7 @@
 #define CONCURRENT_PRIORITY_QUEUE_H
 #include <queue>
 #include <mutex>
-#include <spinlock.h>
+#include <Common/spinlock.h>
 
 namespace Concurrent{
     template<class ItemType, typename _Compare  = std::less<int>>

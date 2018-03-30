@@ -3,7 +3,8 @@
 #include <QDir>
 #include <QFileDialog>
 #include <QTextBlock>
-#include <packagemanager.h>
+
+#include <statics.h>
 
 
 Pcclient::Pcclient(QWidget *parent) :
@@ -12,7 +13,9 @@ Pcclient::Pcclient(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    PackMgr.Start();
+    Statics::Init();
+    connect(&mPkgHandle, SIGNAL(EventLogSignal(QString)), ui->PTELog, SLOT(appendPlainText(QString)));
+    connect(&mPkgHandle, SIGNAL(EventMessageSignal(QString)), ui->PTERecverHeader, SLOT(appendPlainText(QString)));
 }
 
 Pcclient::~Pcclient()
@@ -29,13 +32,7 @@ void Pcclient::on_SendButton_clicked()
 {
     PackageConfig package;
     LoadPackageConfig(package);
-    PackMgr.SendPackage(package);
-}
-
-void Pcclient::on_AddToTimerTaskButton_clicked()
-{
-    PackageConfig package;
-    LoadPackageConfig(package);
+    mPkgHandle.Execute(package);
 }
 
 void Pcclient::LoadPackageConfig(PackageConfig &Package)
@@ -48,6 +45,7 @@ void Pcclient::LoadPackageConfig(PackageConfig &Package)
     Package.ePort.ip = ui->LEIP->text().toStdString();
     Package.ePort.port = ui->LEPort->text().toShort();
     Package.tType = (EMTIMERTYPE)ui->Timer->currentIndex();
+    Package.maxBuffSize = ui->LEMaxBuffSize->text().toInt();
 
     auto sendheaderdocument = ui->PTESenderHeader->document();
     for(QTextBlock textblock = sendheaderdocument->begin(); textblock != sendheaderdocument->end(); textblock = textblock.next()){
@@ -59,4 +57,5 @@ void Pcclient::LoadPackageConfig(PackageConfig &Package)
         Package.paylaodLines.push_back(textblock.text().toStdString());
     }
 
+    Package.bUseKcp = (1 == ui->UDPKCP->currentIndex());
 }

@@ -18,7 +18,7 @@ void ConnnectionContainer::UpdateAllKcp(uint32_t clock)
     }
 }
 
-Connection *ConnnectionContainer::AddConn(kcp_conv_t conv, const Endport &ePort)
+Connection *ConnnectionContainer::AddConn(kcp_conv_t conv, const EndPort &ePort)
 {
     Connection * conn = Connection::Create(conv, ePort, ConnMgr);
     if(conn){

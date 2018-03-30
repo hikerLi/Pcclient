@@ -9,15 +9,13 @@
 //#include <Timer/timer.h>
 #include <functional>
 #include <Common/common.h>
-#include <Common/memorypool.h>
+//#include <Common/memorypool.h>
 
 typedef kcp_conv_t handle_t;
 
 class ConnectionManager /*: Singleton<ConnectionManager>*/
 {
 public:
-    template<class RegisterFunction>
-    ConnectionManager(RegisterFunction&& RFunc);
 
     /***
      * 描述：处理kcp网络包，将解包后的原始字符串数据放到任务队列。
@@ -25,7 +23,7 @@ public:
      * @param ipPort : ip-port
      * return value :
      */
-    bool HandleKcpPackage(const std::string& data, const Endport& ipPort, kcp_conv_t &conv, std::string& payload);
+    bool HandleKcpPackage(const std::string& data, const EndPort& ipPort, kcp_conv_t &conv, std::string& payload);
 
     /***
      * 描述：发送udp数据，用于回掉，不要主动调用。
@@ -33,13 +31,13 @@ public:
      * @param ipPort : ip-port
      * return value :
      */
-    int SendUdpPackage(const std::string &data, const Endport &ipPort);
+    int SendUdpPackage(const std::string &data, const EndPort &ipPort);
 
     /***
      * 描述：将需要发送的消息推到发送队列。
      * @param handle : 连接句柄
      * @param msg : 发送数据
-     * return value :TimerIns
+     * return value :
      */
     int PushToKcpSendQue(kcp_conv_t conv, const std::string &msg);
 
@@ -47,35 +45,27 @@ public:
         return serverfd;
     }
 
-    uint32_t UdpRecvPackage(std::string &data, Endport &ePort);
+    uint32_t UdpRecvPackage(std::string &data, EndPort &ePort);
 
     void Init(uint16_t port);
+
+    void UpdateAllKcpTimer();
 private:
-    int CreateConnection(const Endport &ipPort);
+    int CreateConnection(const EndPort &ipPort);
 
     void RegisterHandle(handle_t handle);
 
-    void UpdateAllKcpTimer();
-
     void InitUdp(uint16_t port);
 
-    uint32_t UdpSendMsg(const std::string &data, const Endport &ePort);
+    uint32_t UdpSendMsg(const std::string &data, const EndPort &ePort);
 
 
 private:
 
     ConnnectionContainer * ConnContainer;
 
-    std::function<void(kcp_conv_t conv, const std::string& payload)> RegisterConnector;
-
     HANDLE_T serverfd;
 };
-
-template<class RegisterFunction>
-ConnectionManager::ConnectionManager(RegisterFunction &&RFunc)
-{
-    RegisterConnector = std::move(RFunc);
-}
 
 //#define ConnMgr ConnectionManager::GetInstance()
 
