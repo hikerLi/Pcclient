@@ -12,7 +12,7 @@ Timer::Timer():
 
 Timer::~Timer()
 {
-
+    bRunning.store(false);
 }
 
 void Timer::Start()
